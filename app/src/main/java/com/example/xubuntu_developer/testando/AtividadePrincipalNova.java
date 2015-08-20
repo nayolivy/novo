@@ -1,5 +1,6 @@
 package com.example.xubuntu_developer.testando;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -77,11 +78,9 @@ public class AtividadePrincipalNova extends ActionBarActivity {
     private class ItemClicado implements AdapterView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            Toast.makeText(getApplicationContext(),
-                    mAdaptador.getItem(position),
-                    Toast.LENGTH_SHORT
-
-            ).show();
+            Intent detailIntent = new Intent(getApplicationContext(),AtividadeDetalhes.class);
+            detailIntent.putExtra(Intent.EXTRA_TEXT,mAdaptador.getItem(position));
+            startActivity(detailIntent);
         }
     }
 }
