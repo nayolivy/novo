@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@SuppressWarnings("deprecation")
 public class AtividadePrincipalNova extends ActionBarActivity {
     private ArrayAdapter mAdaptador;
 
@@ -19,14 +20,17 @@ public class AtividadePrincipalNova extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_atividade_principal_nova);
         String[] dados = new String[]{
-                "NossaSala",
+
 
                 "Angela",
-                "Nayara",
                 "Éder",
+                "Fátima",
                 "Lucas",
-                "Ricardo",
-                "fátima"
+                "Nayara",
+                "Ricardo"
+
+
+
         };
 
         List<String> NossaSala = new ArrayList<>(Arrays.asList(dados));
