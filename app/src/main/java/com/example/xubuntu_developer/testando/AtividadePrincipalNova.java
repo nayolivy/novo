@@ -4,8 +4,11 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,7 +16,7 @@ import java.util.List;
 
 @SuppressWarnings("deprecation")
 public class AtividadePrincipalNova extends ActionBarActivity {
-    private ArrayAdapter mAdaptador;
+    private ArrayAdapter<String> mAdaptador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,8 @@ public class AtividadePrincipalNova extends ActionBarActivity {
         ListView listView = (ListView) findViewById(R.id.lista_principal);
         listView.setAdapter(mAdaptador);
 
+        listView.setOnItemClickListener(new ItemClicado());
+
 
     }
 
@@ -68,5 +73,15 @@ public class AtividadePrincipalNova extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    private class ItemClicado implements AdapterView.OnItemClickListener {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            Toast.makeText(getApplicationContext(),
+                    mAdaptador.getItem(position),
+                    Toast.LENGTH_SHORT
+
+            ).show();
+        }
     }
 }
